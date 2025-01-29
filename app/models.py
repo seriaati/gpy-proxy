@@ -70,7 +70,6 @@ class RedeemCodeRequest(BaseAPIRequest):
 
 
 class AppLoginRequest(BaseModel):
-    token: str
     email: str
     password: str
     mmt_result: typing.Optional[str] = None
