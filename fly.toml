@@ -4,6 +4,7 @@
 #
 
 app = 'gpy-proxy'
+# app = "gpy-proxy-polished-thunder-1143"
 primary_region = 'ams'
 
 [build]
