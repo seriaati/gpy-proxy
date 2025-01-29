@@ -50,7 +50,7 @@ async def exception_handler(request: Request, exc: Exception) -> JSONResponse:
 
 @app.get("/")
 async def root() -> typing.Dict[str, str]:
-    return {"message": "genshin.py proxy API v1.0.0"}
+    return {"message": "genshin.py proxy API v1.0.1"}
 
 
 @app.post("/redeem/", dependencies=[Security(validate_token)])
