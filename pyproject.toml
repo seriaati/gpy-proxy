@@ -1,0 +1,26 @@
+[project]
+name = "gpy-proxy"
+version = "0.1.0"
+description = "genshin.py proxy API"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "cryptography>=44.0.0",
+    "fastapi[standard]>=0.115.8",
+    "uvicorn>=0.34.0",
+    "genshin[auth]",
+]
+license = { file = "LICENSE" }
+
+[tool.uv.sources]
+genshin = { git = "https://github.com/thesadru/genshin.py.git", rev = "c0a96fb" }
+
+[tool.pyright]
+enableTypeIgnoreComments = false
+reportIncompatibleMethodOverride = false
+reportIncompatibleVariableOverride = false
+reportUnnecessaryComparison = true
+reportUnnecessaryContains = true
+reportUnnecessaryIsInstance = true
+reportUnnecessaryTypeIgnoreComment = true
+typeCheckingMode = "standard"
