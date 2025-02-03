@@ -26,7 +26,6 @@ from app.models import (
     RedeemCodeRequest,
     BaseAPIRequest,
 )
-from app.utils import get_git_commit_hash
 
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
@@ -51,7 +50,7 @@ async def exception_handler(request: Request, exc: Exception) -> JSONResponse:
 
 @app.get("/")
 async def root() -> typing.Dict[str, str]:
-    return {"message": f"genshin.py proxy API is running. Commit hash: {get_git_commit_hash()}"}
+    return {"message": f"genshin.py proxy API is running"}
 
 
 @app.post("/redeem/", dependencies=[Security(validate_token)])
