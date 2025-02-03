@@ -2,14 +2,13 @@ from fastapi.responses import JSONResponse
 import json
 import genshin
 
-from ..models import AppLoginRequest, GenshinClient
+from ..models import AppLoginRequest
 
 __all__ = ("app_login",)
 
 
 async def app_login(data: AppLoginRequest) -> JSONResponse:
-    client = GenshinClient()
-
+    client = genshin.Client()
     try:
         if data.mmt_result is not None:
             result = await client._app_login(
