@@ -1,4 +1,5 @@
 import typing
+from datetime import datetime, timezone
 
 from fastapi.responses import JSONResponse
 import genshin
@@ -27,8 +28,10 @@ from app.models import (
     BaseAPIRequest,
 )
 
+
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
+BUILD_TIME = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 
 app = FastAPI(docs_url=None, redoc_url=None)
 security = HTTPBearer(auto_error=True)
@@ -50,7 +53,7 @@ async def exception_handler(request: Request, exc: Exception) -> JSONResponse:
 
 @app.get("/")
 async def root() -> typing.Dict[str, str]:
-    return {"message": f"genshin.py proxy API is running"}
+    return {"status": "ok", "build_time": BUILD_TIME}
 
 
 @app.post("/redeem/", dependencies=[Security(validate_token)])
