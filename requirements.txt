@@ -1,4 +1,4 @@
 fastapi[standard]
-genshin[auth] @ git+https://github.com/thesadru/genshin.py.git@c0a96fb
+genshin[auth] @ git+https://github.com/thesadru/genshin.py.git@a791590
 uvicorn
 cryptography
