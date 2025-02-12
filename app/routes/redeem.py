@@ -11,7 +11,7 @@ load_dotenv()
 
 
 def encrypt_string(string: str) -> str:
-    key = Fernet(os.getenv("FERNET_KEY"))
+    key = Fernet(os.environ["FERNET_KEY"])
     return key.encrypt(string.encode()).decode()
 
 
